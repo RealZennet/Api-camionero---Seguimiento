@@ -31,6 +31,7 @@ namespace APICamionero.Models
         }
 
 
+
         public bool Edit(int idCamionero)
         {
             try
@@ -47,7 +48,7 @@ namespace APICamionero.Models
 
                 if (!Enum.IsDefined(typeof(ShippingStatusEnum), this.ShippingStatus))
                 {
-                    throw new Exception("Estado de envío no válido.");
+                    throw new Exception("Estado de envío no válido. " + this.ShippingStatus);
                 }
 
                 this.Command.CommandText = $"UPDATE transporta SET " +
