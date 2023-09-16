@@ -184,10 +184,12 @@
     <Compile Include="Controllers\GetDestinationView.cs" />
     <Compile Include="Controllers\GetTravelView.cs" />
     <Compile Include="Controllers\GetTruckerCarryView.cs" />
+    <Compile Include="Controllers\GetTruckerDriveTruckView.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatusShippmentMapping.cs" />
     <Compile Include="Controllers\TravelController.cs" />
     <Compile Include="Controllers\TruckerCarryController.cs" />
+    <Compile Include="Controllers\TruckerDriveTruckController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
