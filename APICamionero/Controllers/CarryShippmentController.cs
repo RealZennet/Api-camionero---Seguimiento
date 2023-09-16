@@ -75,10 +75,6 @@ namespace APICamionero.Controllers
             }
         }
 
-
-
-
-
         private Dictionary<string, string> showResult(string message)
         {
             Dictionary<string, string> resultJson = new Dictionary<string, string>();

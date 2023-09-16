@@ -179,7 +179,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CarryShippmentController.cs" />
+    <Compile Include="Controllers\DestinationController.cs" />
     <Compile Include="Controllers\GetCarryShippment.cs" />
+    <Compile Include="Controllers\GetDestinationView.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatusShippmentMapping.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
