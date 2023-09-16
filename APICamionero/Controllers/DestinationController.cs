@@ -31,7 +31,7 @@ namespace APICamionero.Controllers
                     ActivedDestination = selectedDestination.ActivedDestination
                 };
 
-                return Ok(destinationView);
+                return Ok(destinationView); 
             }
         }
 

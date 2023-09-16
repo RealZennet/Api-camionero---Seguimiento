@@ -21,13 +21,6 @@ namespace APICamionero.Models
 
         public DateTime ShippmentDate { get; set; }
 
-        public enum ShippingStatusEnum
-        {
-            Inicio,
-            Parada,
-            Fin
-        }
-
         public List<TravelModel> GetTravelsByStoreHouse(int storeHouseId)
         {
             List<TravelModel> travels = new List<TravelModel>();
