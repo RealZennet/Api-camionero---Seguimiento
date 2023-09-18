@@ -11,6 +11,7 @@ namespace APICamionero.Controllers
         public string StreetDestination { get; set; }
         public int DoorNumber { get; set; }
         public string CornerDestination { get; set; }
+        public DateTime EstimatedDate { get; set; }
         public bool ActivedDestination { get; set; }
     }
 }

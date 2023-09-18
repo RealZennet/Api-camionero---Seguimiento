@@ -28,6 +28,7 @@ namespace APICamionero.Controllers
                     StreetDestination = selectedDestination.StreetDestination,
                     DoorNumber = selectedDestination.DoorNumber,
                     CornerDestination = selectedDestination.CornerDestination,
+                    EstimatedDate = selectedDestination.EstimatedDate,
                     ActivedDestination = selectedDestination.ActivedDestination
                 };
 
@@ -46,6 +47,7 @@ namespace APICamionero.Controllers
                 StreetDestination = everyDestination.StreetDestination,
                 DoorNumber = everyDestination.DoorNumber,
                 CornerDestination = everyDestination.CornerDestination,
+                EstimatedDate = everyDestination.EstimatedDate,
                 ActivedDestination = everyDestination.ActivedDestination
             }
             ).ToList();
