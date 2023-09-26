@@ -10,7 +10,7 @@ namespace APICamionero.Models
     {
         public int IDDestination { get; set; }
         public string StreetDestination { get; set; }
-        public int DoorNumber { get; set; }
+        public string DoorNumber { get; set; }
         public string CornerDestination { get; set; }
         public DateTime EstimatedDate { get; set; }
         public bool ActivedDestination { get; set; }
@@ -30,7 +30,7 @@ namespace APICamionero.Models
                     {
                         IDDestination = Convert.ToInt32(this.Reader["id_des"]),
                         StreetDestination = this.Reader["calle"].ToString(),
-                        DoorNumber = Convert.ToInt32(this.Reader["num"]),
+                        DoorNumber = this.Reader["num"].ToString(),
                         CornerDestination = this.Reader["esq"].ToString(),
                         EstimatedDate = Convert.ToDateTime(this.Reader["fech_esti"].ToString()),
                         ActivedDestination = Convert.ToBoolean(this.Reader["bajalogica"])
@@ -62,7 +62,7 @@ namespace APICamionero.Models
                     {
                         IDDestination = Convert.ToInt32(this.Reader["id_des"]),
                         StreetDestination = this.Reader["calle"].ToString(),
-                        DoorNumber = Convert.ToInt32(this.Reader["num"]),
+                        DoorNumber = this.Reader["num"].ToString(),
                         CornerDestination = this.Reader["esq"].ToString(),
                         EstimatedDate = Convert.ToDateTime(this.Reader["fech_esti"].ToString()),
                         ActivedDestination = Convert.ToBoolean(this.Reader["bajalogica"])
