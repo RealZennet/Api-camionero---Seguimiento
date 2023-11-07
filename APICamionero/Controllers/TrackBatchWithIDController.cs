@@ -27,7 +27,6 @@ namespace APICamionero.Controllers
                     LoteId = order.LoteId,
                     StreetDestination = order.StreetDestination,
                     DoorNumber = order.DoorNumber,
-                    CornerDestination = order.CornerDestination,
                     ShippmentDate = order.ShippmentDate
                     
                 };

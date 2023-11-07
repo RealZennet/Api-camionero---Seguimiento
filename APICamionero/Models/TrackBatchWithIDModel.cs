@@ -11,14 +11,13 @@ namespace APICamionero.Models
         public int LoteId { get; private set; }
         public string StreetDestination { get; private set; }
         public string DoorNumber { get; private set; }
-        public string CornerDestination { get; private set; }
         public DateTime ShippmentDate { get; private set; }
 
         public void GetDestinationAndStatusByLoteId(int loteId)
         {
             try
             {
-                this.Command.CommandText = $"SELECT l.id_lote, d.calle, d.num, d.esq, t.estatus, l.fech_entre " +
+                this.Command.CommandText = $"SELECT l.id_lote, d.calle, d.num, t.estatus, l.fech_entre " +
                                            "FROM lote AS l " +
                                            "JOIN transporta AS t ON l.id_lote = t.id_lote " +
                                            "JOIN destino AS d ON t.id_des = d.id_des " +
@@ -30,7 +29,6 @@ namespace APICamionero.Models
                     LoteId = Convert.ToInt32(this.Reader["id_lote"]);
                     StreetDestination = this.Reader["calle"].ToString();
                     DoorNumber = this.Reader["num"].ToString();
-                    CornerDestination = this.Reader["esq"].ToString();
                     ShippmentDate = Convert.ToDateTime(this.Reader["fech_entre"]);
                 }
 
