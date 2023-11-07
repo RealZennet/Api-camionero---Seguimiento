@@ -81,7 +81,7 @@ namespace APICamionero.Models
             {
                 throw new Exception("Error: " + ex.Message);
             }
-
+            this.Connection.Close();
             return travels;
         }
     }

@@ -42,7 +42,7 @@ namespace APICamionero.Models
             }
             catch (SqlException ex)
             {
-                throw new Exception("Error SQL: " + ex.Message);
+                throw new Exception("Error: " + ex.Message);
             }
 
             return carries;

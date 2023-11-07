@@ -30,8 +30,6 @@ namespace APICamionero.Models
             NoEnviado
         }
 
-
-
         public bool Edit(int idCamionero)
         {
             try

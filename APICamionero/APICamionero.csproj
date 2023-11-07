@@ -187,6 +187,8 @@
     <Compile Include="Controllers\GetTruckerDriveTruckView.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StatusShippmentMapping.cs" />
+    <Compile Include="Controllers\TrackBatchWithIDController.cs" />
+    <Compile Include="Controllers\GetTrackBatchWithIDView.cs" />
     <Compile Include="Controllers\TravelController.cs" />
     <Compile Include="Controllers\TruckerCarryController.cs" />
     <Compile Include="Controllers\TruckerDriveTruckController.cs" />
@@ -197,6 +199,7 @@
     <Compile Include="Models\CarryShippmentModel.cs" />
     <Compile Include="Models\Databaseconnector.cs" />
     <Compile Include="Models\DestinationModel.cs" />
+    <Compile Include="Models\TrackBatchWithIDModel.cs" />
     <Compile Include="Models\TravelModel.cs" />
     <Compile Include="Models\TruckerCarryModel.cs" />
     <Compile Include="Models\TruckerDriveTruckModel.cs" />

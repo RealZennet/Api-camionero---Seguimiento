@@ -22,7 +22,7 @@ namespace APICamionero.Models
             this.dbip = "localhost";
             this.dbUser = "root";
             this.dbPassword = "zackquack";
-            this.dbDatabaseName = "quickCarryApiTesting";
+            this.dbDatabaseName = "quickCarryDB";
 
             try
             {
