@@ -8,7 +8,7 @@ namespace APICamionero.Models
 {
     public class TrackBatchWithIDModel : DatabaseConnector
     {
-        public int LoteId { get; private set; }
+        public int BatchId { get; private set; }
         public string StreetDestination { get; private set; }
         public string DoorNumber { get; private set; }
         public DateTime ShippmentDate { get; private set; }
@@ -26,7 +26,7 @@ namespace APICamionero.Models
 
                 if (this.Reader.Read())
                 {
-                    LoteId = Convert.ToInt32(this.Reader["id_lote"]);
+                    BatchId = Convert.ToInt32(this.Reader["id_lote"]);
                     StreetDestination = this.Reader["calle"].ToString();
                     DoorNumber = this.Reader["num"].ToString();
                     ShippmentDate = Convert.ToDateTime(this.Reader["fech_entre"]);

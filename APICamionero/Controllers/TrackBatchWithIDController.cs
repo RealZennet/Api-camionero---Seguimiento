@@ -16,7 +16,7 @@ namespace APICamionero.Controllers
             TrackBatchWithIDModel order = new TrackBatchWithIDModel();
             order.GetDestinationAndStatusByLoteId(idBatch);
 
-            if (order.LoteId == 0)
+            if (order.BatchId == 0)
             {
                 return NotFound();
             }
@@ -24,7 +24,7 @@ namespace APICamionero.Controllers
             {
                 var orderView = new GetTrackBatchWithIDView
                 {
-                    LoteId = order.LoteId,
+                    BatchId = order.BatchId,
                     StreetDestination = order.StreetDestination,
                     DoorNumber = order.DoorNumber,
                     ShippmentDate = order.ShippmentDate

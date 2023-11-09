@@ -13,13 +13,14 @@ namespace APICamionero.Models
         public string StreetDestination { get; private set; }
         public string DoorNumber { get; private set; }
         public string CornerDestination { get; private set; }
+        public string Position { get; private set; }
         public string BatchStatus { get; private set; }
 
         public void GetBatchByProductId(int productId)
         {
             try
             {
-                this.Command.CommandText = $"SELECT p.id_prod, l.id_lote, d.calle, d.num, d.esq, t.estatus " +
+                this.Command.CommandText = $"SELECT p.id_prod, l.id_lote, d.calle, d.num, t.estatus, l.posicion, p.bajalogica " +
                                            "FROM producto AS p " +
                                            "JOIN integra AS i ON p.id_prod = i.id_prod " +
                                            "JOIN lote AS l ON i.id_lote = l.id_lote " +
@@ -34,7 +35,13 @@ namespace APICamionero.Models
                     BatchId = Convert.ToInt32(this.Reader["id_lote"]);
                     StreetDestination = this.Reader["calle"].ToString();
                     DoorNumber = this.Reader["num"].ToString();
-                    CornerDestination = this.Reader["esq"].ToString();
+                    Position = this.Reader["posicion"].ToString();
+                    BatchStatus = this.Reader["estatus"].ToString();
+
+                    if (Convert.ToInt32(this.Reader["bajalogica"]) == 0)
+                    {
+                        BatchStatus = "0";
+                    }
                 }
 
                 this.Reader.Close();
@@ -44,6 +51,8 @@ namespace APICamionero.Models
                 throw new Exception("Error: " + ex.Message);
             }
         }
+
+
 
     }
 }

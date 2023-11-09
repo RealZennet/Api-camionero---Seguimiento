@@ -18,7 +18,11 @@ namespace APICamionero.Controllers
 
             if (order.ProductId == 0)
             {
-                return NotFound();
+                return NotFound();  
+            }
+            else if (order.BatchStatus == "0")  
+            {
+                return BadRequest();  
             }
             else
             {
@@ -27,12 +31,14 @@ namespace APICamionero.Controllers
                     ProductId = order.ProductId,
                     BatchId = order.BatchId,
                     StreetDestination = order.StreetDestination,
-                    DoorNumber = order.DoorNumber
+                    DoorNumber = order.DoorNumber,
+                    Position = order.Position
                 };
 
-                return Ok(orderView);
+                return Ok(orderView);  
             }
         }
+
 
     }
 }

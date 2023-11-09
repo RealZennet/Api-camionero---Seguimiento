@@ -7,7 +7,7 @@ namespace APICamionero.Controllers
 {
     public class GetTrackBatchWithIDView
     {
-        public int LoteId { get; set; }
+        public int BatchId { get; set; }
         public string StreetDestination { get; set; }
         public string DoorNumber { get;  set; }
         public DateTime ShippmentDate { get; set; }

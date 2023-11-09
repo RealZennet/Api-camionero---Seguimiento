@@ -11,5 +11,6 @@ namespace APICamionero.Controllers
         public int BatchId { get; set; }
         public string StreetDestination { get;  set; }
         public string DoorNumber { get; set; }
+        public string Position { get; set; }
     }
 }
