@@ -20,6 +20,10 @@ namespace APICamionero.Controllers
             {
                 return NotFound();
             }
+            else if (order.BatchStatus == "0")
+            {
+                return BadRequest();
+            }
             else
             {
                 var orderView = new GetTrackBatchWithIDView
@@ -27,8 +31,9 @@ namespace APICamionero.Controllers
                     BatchId = order.BatchId,
                     StreetDestination = order.StreetDestination,
                     DoorNumber = order.DoorNumber,
-                    ShippmentDate = order.ShippmentDate
-                    
+                    ShippmentDate = order.ShippmentDate,
+                    Position = order.Position,
+                    BatchStatus = order.BatchStatus
                 };
 
                 return Ok(orderView);

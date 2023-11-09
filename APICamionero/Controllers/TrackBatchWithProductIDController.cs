@@ -32,7 +32,8 @@ namespace APICamionero.Controllers
                     BatchId = order.BatchId,
                     StreetDestination = order.StreetDestination,
                     DoorNumber = order.DoorNumber,
-                    Position = order.Position
+                    Position = order.Position,
+                    ShippingDate = order.ShippingDate
                 };
 
                 return Ok(orderView);  
