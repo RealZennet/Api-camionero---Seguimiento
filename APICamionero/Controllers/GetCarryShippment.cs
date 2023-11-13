@@ -10,6 +10,7 @@ namespace APICamionero.Controllers
         public int IDTruck { get; set; }
         public int IDBatch { get; set; }
         public int IDDestination { get; set; }
+        public string Position { get; set; }
         public string ShippingStatus { get; set; }
     }
 }

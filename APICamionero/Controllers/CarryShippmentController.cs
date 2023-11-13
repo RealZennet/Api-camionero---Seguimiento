@@ -27,6 +27,7 @@ namespace APICamionero.Controllers
                     IDTruck = selectedCarrie.IDTruck,
                     IDBatch = selectedCarrie.IDBatch,
                     IDDestination = selectedCarrie.IDDestination,
+                    Position = selectedCarrie.Position,
                     ShippingStatus = selectedCarrie.ShippingStatus
                 };
 
@@ -34,8 +35,6 @@ namespace APICamionero.Controllers
 
             }
         }
-
-
 
         [Route("api/v1/transporta/{id:int}")]
         [HttpPatch]

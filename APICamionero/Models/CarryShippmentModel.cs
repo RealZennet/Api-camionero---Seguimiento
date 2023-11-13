@@ -22,6 +22,8 @@ namespace APICamionero.Models
         [StringLength(50, ErrorMessage = "Error en tipo de status.")]
         public string ShippingStatus { get; set; }
 
+        public string Position { get; set; }
+
         public enum ShippingStatusEnum
         {
             Entregado,
@@ -83,23 +85,31 @@ namespace APICamionero.Models
 
         public List<CarryShippmentModel> GetAssignedToCamionero(int idCamionero)
         {
-            this.Command.CommandText = $"SELECT * FROM transporta WHERE id_camion = {idCamionero}";
+            this.Command.CommandText = $"SELECT transporta.*, lote.posicion " +
+                                       $"FROM transporta " +
+                                       $"INNER JOIN lote ON transporta.id_lote = lote.id_lote " +
+                                       $"WHERE transporta.id_camion = {idCamionero}";
+
             this.Reader = this.Command.ExecuteReader();
 
             List<CarryShippmentModel> result = new List<CarryShippmentModel>();
             while (this.Reader.Read())
             {
-                CarryShippmentModel carryshipment = new CarryShippmentModel();
-                carryshipment.IDTruck = Int32.Parse(this.Reader["id_camion"].ToString());
-                carryshipment.IDBatch = Int32.Parse(this.Reader["id_lote"].ToString());
-                carryshipment.IDDestination = Int32.Parse(this.Reader["id_des"].ToString());
-                carryshipment.ShippingStatus = this.Reader["estatus"].ToString();
+                CarryShippmentModel carryshipment = new CarryShippmentModel
+                {
+                    IDTruck = Int32.Parse(this.Reader["id_camion"].ToString()),
+                    IDBatch = Int32.Parse(this.Reader["id_lote"].ToString()),
+                    IDDestination = Int32.Parse(this.Reader["id_des"].ToString()),
+                    Position = this.Reader["posicion"].ToString(),
+                    ShippingStatus = this.Reader["estatus"].ToString()
+                };
                 result.Add(carryshipment);
             }
 
             this.Reader.Close();
             return result;
         }
+
 
 
         private bool Exists(int id)
@@ -136,16 +146,23 @@ namespace APICamionero.Models
 
         public CarryShippmentModel GetOne(int id)
         {
-            this.Command.CommandText = $"SELECT * FROM transporta WHERE id_camion = {id}";
+            this.Command.CommandText = $"SELECT transporta.*, lote.posicion " +
+                                       $"FROM transporta " +
+                                       $"INNER JOIN lote ON transporta.id_lote = lote.id_lote " +
+                                       $"WHERE transporta.id_camion = {id}";
+
             this.Reader = this.Command.ExecuteReader();
 
             if (this.Reader.Read())
             {
-                CarryShippmentModel carryshipment = new CarryShippmentModel();
-                carryshipment.IDTruck = Int32.Parse(this.Reader["id_camion"].ToString());
-                carryshipment.IDBatch = Int32.Parse(this.Reader["id_lote"].ToString());
-                carryshipment.IDDestination = Int32.Parse(this.Reader["id_des"].ToString());
-                carryshipment.ShippingStatus = this.Reader["estatus"].ToString();
+                CarryShippmentModel carryshipment = new CarryShippmentModel
+                {
+                    IDTruck = Int32.Parse(this.Reader["id_camion"].ToString()),
+                    IDBatch = Int32.Parse(this.Reader["id_lote"].ToString()),
+                    IDDestination = Int32.Parse(this.Reader["id_des"].ToString()),
+                    Position = this.Reader["posicion"].ToString(),
+                    ShippingStatus = this.Reader["estatus"].ToString()
+                };
                 this.Reader.Close();
                 return carryshipment;
             }
@@ -153,6 +170,7 @@ namespace APICamionero.Models
             this.Reader.Close();
             return null;
         }
+
 
     }
 }

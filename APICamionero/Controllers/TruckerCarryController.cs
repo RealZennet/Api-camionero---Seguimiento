@@ -27,11 +27,13 @@ namespace APICamionero.Controllers
                 {
                     IDTruck = firstTruckerCarry.IDTruck,
                     IDBatch = firstTruckerCarry.IDBatch,
+                    Position = firstTruckerCarry.Position,
                     ShippmentDate = firstTruckerCarry.ShippmentDate
                 };
 
                 return Ok(truckerView);
             }
         }
+
     }
 }

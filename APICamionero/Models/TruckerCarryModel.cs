@@ -15,6 +15,8 @@ namespace APICamionero.Models
         [Required(ErrorMessage = "ID Lote requerido")]
         public int IDBatch { get; set; }
 
+        public string Position { get; set; }
+
         public DateTime ShippmentDate { get; set; }
 
         public List<TruckerCarryModel> GetCarriesByTruck(int truckId)
@@ -23,7 +25,11 @@ namespace APICamionero.Models
 
             try
             {
-                this.Command.CommandText = $"SELECT * FROM llevan WHERE id_camion = {truckId}";
+                this.Command.CommandText = $"SELECT llevan.*, lote.posicion " +
+                                           $"FROM llevan " +
+                                           $"INNER JOIN lote ON llevan.id_lote = lote.id_lote " +
+                                           $"WHERE llevan.id_camion = {truckId}";
+
                 this.Reader = this.Command.ExecuteReader();
 
                 while (this.Reader.Read())
@@ -32,7 +38,8 @@ namespace APICamionero.Models
                     {
                         IDTruck = Convert.ToInt32(this.Reader["id_camion"]),
                         IDBatch = Convert.ToInt32(this.Reader["id_lote"]),
-                        ShippmentDate = DateTime.Parse(this.Reader["fech_sal"].ToString())
+                        ShippmentDate = DateTime.Parse(this.Reader["fech_sal"].ToString()),
+                        Position = this.Reader["posicion"].ToString()
                     };
 
                     carries.Add(carry);
@@ -47,5 +54,6 @@ namespace APICamionero.Models
 
             return carries;
         }
+
     }
 }
